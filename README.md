@@ -1,1 +1,1 @@
-# h4h-submit-version
+# h4h-automated
