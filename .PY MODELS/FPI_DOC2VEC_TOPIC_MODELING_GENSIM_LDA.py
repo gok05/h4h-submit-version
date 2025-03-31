@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# coding: utf-8
+
 import os
 import pandas as pd
 from gensim.models.doc2vec import Doc2Vec, TaggedDocument
@@ -6,9 +9,9 @@ from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 import string
 import logging
-# from nltk.tokenize import word_tokenize
+from nltk.tokenize import word_tokenize
 from collections import Counter
-# from sklearn.cluster import KMeans
+from sklearn.cluster import KMeans
 
 nltk.download('stopwords')
 nltk.download('wordnet')
@@ -332,7 +335,8 @@ for index, row in results_df.iterrows():
     for name, score in zip(row['Similar Scientific Names'], row['Similarity Scores']):
         transposed_df.loc[name, row['Searched Scientific Name']] = score
 
-output_excel_path = r"C:\Users\USER\Documents\Github\h4h-submit version\OUTPUT DATA OF MODELS\LDA_FPI_top_results_new.xlsx"
+#output_excel_path = r"C:\Users\USER\Documents\Github\h4h-submit version\OUTPUT DATA OF MODELS\LDA_FPI_top_results_new.xlsx"
+output_excel_path = r"C:\Users\USER\Desktop\NEW RESULTS\LDA_FPI_top_results_new.xlsx"
 transposed_df.to_excel(output_excel_path)
 
 print(output_excel_path)
