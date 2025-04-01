@@ -92,6 +92,14 @@ vectors = [model.dv[index] for index in range(len(df))]
 
 vectors
 
+import pickle
+
+model_path = r"C:\Users\USER\Desktop\NEW RESULTS\fpi_doc2vec_gensim.pkl"
+
+with open (model_path, "wb") as f:
+    pickle.dump(model, f)
+    
+print(model_path)
 ###############GENSIM
 
 from gensim import corpora, models
