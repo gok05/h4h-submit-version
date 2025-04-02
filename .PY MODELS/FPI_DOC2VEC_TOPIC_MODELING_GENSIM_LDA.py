@@ -92,6 +92,7 @@ vectors = [model.dv[index] for index in range(len(df))]
 
 vectors
 
+# saving the model thru pickle
 import pickle
 
 model_path = r"C:\Users\USER\Desktop\NEW RESULTS\fpi_doc2vec_gensim.pkl"
@@ -100,6 +101,8 @@ with open (model_path, "wb") as f:
     pickle.dump(model, f)
     
 print(model_path)
+
+
 ###############GENSIM
 
 from gensim import corpora, models
@@ -121,6 +124,13 @@ n_topics = 500
 # Build the LDA model
 lda_model = models.LdaModel(corpus_gensim, num_topics=n_topics, id2word=dictionary)
 
+# saving the model thru pickle
+model_path = r"C:\Users\USER\Desktop\NEW RESULTS\fpi_lda_model.pkl"
+
+with open (model_path, "wb") as f:
+    pickle.dump(lda_model, f)
+    
+print(model_path)
 #calculating model perplexity
 
 perplexity = lda_model.log_perplexity(corpus_gensim)
